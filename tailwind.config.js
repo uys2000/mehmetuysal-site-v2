@@ -3,14 +3,16 @@ module.exports = {
   content: ["./*/index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
     screens: {
-      sm: "480px",
+      sm: "425px",
       md: "768px",
       lg: "976px",
       xl: "1440px",
     },
     colors: {
-      primary:"#000000",
-      secondary:"#dddddd"
+      primary: "#000000",
+      secondary: "#dddddd",
+      third: "#FF0080",
+      trans: "#00000000",
     },
     fontFamily: {
       sans: ["Graphik", "sans-serif"],
