@@ -23,7 +23,21 @@ module.exports = {
       pulseR: "pulseR 3s linear infinite",
       pulseF: "pulseF 3s linear infinite",
     },
+    width: {
+      vw: "100vw",
+      "vw/2": "50vw",
+    },
+    height: {
+      vh: "100vh",
+      "vh/2": "50vh",
+    },
     extend: {
+      spacing: {
+        vw: "100vw",
+        vh: "100vh",
+        "vw/2": "50vw",
+        "vh/2": "50vh",
+      },
       keyframes: {
         pulseR: {
           "0%": { opacity: ".5" },
