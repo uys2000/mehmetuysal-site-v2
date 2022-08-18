@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed">
+  <div id="sideMenuButtons">
     <side-menu-btn-comp side="left">Left</side-menu-btn-comp>
     <side-menu-btn-comp side="right">Right</side-menu-btn-comp>
     <side-menu-btn-comp side="bottom">Bottom</side-menu-btn-comp>

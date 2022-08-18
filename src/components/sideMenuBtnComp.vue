@@ -1,6 +1,6 @@
 <template>
   <button
-    class="fixed invisible md:visible px-6 py-2 active:text-third"
+    class="absolute invisible md:visible px-6 py-2 active:text-third"
     :style="style[side]"
   >
     <slot />

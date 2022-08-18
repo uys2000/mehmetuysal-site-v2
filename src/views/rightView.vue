@@ -1,0 +1,1 @@
+<template>RightView</template>

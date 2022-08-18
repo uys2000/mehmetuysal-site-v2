@@ -1,3 +1,3 @@
 <template>
-  TopView
+  LeftView
 </template>

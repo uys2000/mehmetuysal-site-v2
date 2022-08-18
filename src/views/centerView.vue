@@ -1,30 +1,33 @@
 <template>
+  <div class="absolute h-full w-full flex justify-center content-center items-center">
+    <div :class="pulse + line + line1" />
+    <div :class="pulse + line + line2" />
+    <div :class="pulse + line + line3" />
+    <div :class="pulse + line + line4" />
+    <div :class="pulse + line + line5" />
+    <div :class="pulse + line + line6" />
+
+    <div id="line7" :class="pulse + line + line7 + lineH + lineMD" />
+    <div id="line8" :class="pulse + line + line8 + lineH + lineMD" />
+    <div id="line9" :class="pulse + line + line9 + lineH + lineMD" />
+    <div id="line10" :class="pulse + line + line10 + lineH + lineMD" />
+    <div id="line11" :class="pulse + line + line11 + lineH + lineMD" />
+    <div id="line12" :class="pulse + line + line12 + lineH + lineMD" />
+    <div id="line13" :class="pulse + line + line13 + lineH + lineMD" />
+    <div id="line14" :class="pulse + line + line14 + lineH + lineMD" />
+    <div id="line15" :class="pulse + line + line15 + lineH + lineLG" />
+    <div id="line16" :class="pulse + line + line16 + lineH + lineLG" />
+    <div id="line17" :class="pulse + line + line17 + lineH + lineXL" />
+    <div id="line18" :class="pulse + line + line18 + lineH + lineXL" />
+    <div id="line19" :class="pulse + line + line19 + lineH + line2X" />
+    <div id="line20" :class="pulse + line + line20 + lineH + line2X" />
+  </div>
+
   <header class="motion-safe:animate-pulseR text-center">
     <span class="m-auto text-4xl hover:text-third transition duration-1000">
       Mehmet Uysal
     </span>
   </header>
-  <div :class="pulse + line + line1" />
-  <div :class="pulse + line + line2" />
-  <div :class="pulse + line + line3" />
-  <div :class="pulse + line + line4" />
-  <div :class="pulse + line + line5" />
-  <div :class="pulse + line + line6" />
-
-  <div id="line7" :class="pulse + line + line7 + lineH + lineMD" />
-  <div id="line8" :class="pulse + line + line8 + lineH + lineMD" />
-  <div id="line9" :class="pulse + line + line9 + lineH + lineMD" />
-  <div id="line10" :class="pulse + line + line10 + lineH + lineMD" />
-  <div id="line11" :class="pulse + line + line11 + lineH + lineMD" />
-  <div id="line12" :class="pulse + line + line12 + lineH + lineMD" />
-  <div id="line13" :class="pulse + line + line13 + lineH + lineMD" />
-  <div id="line14" :class="pulse + line + line14 + lineH + lineMD" />
-  <div id="line15" :class="pulse + line + line15 + lineH + lineLG" />
-  <div id="line16" :class="pulse + line + line16 + lineH + lineLG" />
-  <div id="line17" :class="pulse + line + line17 + lineH + lineXL" />
-  <div id="line18" :class="pulse + line + line18 + lineH + lineXL" />
-  <div id="line19" :class="pulse + line + line19 + lineH + line2X" />
-  <div id="line20" :class="pulse + line + line20 + lineH + line2X" />
 </template>
 <script>
 export default {

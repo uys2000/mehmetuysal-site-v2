@@ -1,11 +1,31 @@
 <template>
   <div></div>
-  <div id="t-page" class="ring-8 ring-third text-center">T Page</div>
+  <page-choser-comp :p="p.t" />
   <div></div>
-  <div id="l-page" class="ring-8 ring-third text-center">L Page</div>
-  <div id="c-page" class="ring-8 ring-third text-center">C Page</div>
-  <div id="r-page" class="ring-8 ring-third text-center">R Page</div>
+  <page-choser-comp :p="p.l" />
+  <page-choser-comp :p="p.c" />
+  <page-choser-comp :p="p.r" />
   <div></div>
-  <div id="b-page" class="ring-8 ring-third text-center">B Page</div>
+  <page-choser-comp :p="p.b" />
   <div></div>
 </template>
+<script>
+import pageChoserComp from "@/components/pageChoserComp.vue";
+export default {
+  components: {
+    pageChoserComp,
+  },
+  data() {
+    return {
+      // History of pages
+      p: {
+        t: "t", // topPage
+        l: "l", // leftPage
+        c: "c", // centerPage
+        r: "r", // rightPage
+        b: "b", // bottomPage
+      },
+    };
+  },
+};
+</script>
