@@ -1,30 +1,26 @@
 <template>
-  <div></div>
-  <page-choser-comp :p="p.t" />
-  <div></div>
-  <page-choser-comp :p="p.l" />
-  <page-choser-comp :p="p.c" />
-  <page-choser-comp :p="p.r" />
-  <div></div>
-  <page-choser-comp :p="p.b" />
-  <div></div>
+  <div class="ring h-screen w-screen"></div>
+  <animate-comp :p="pageStore.pages.t" />
+  <div class="ring h-screen w-screen"></div>
+  <animate-comp :p="pageStore.pages.l" />
+  <animate-comp :p="pageStore.pages.c"><side-menu-comp /></animate-comp>
+  <animate-comp :p="pageStore.pages.r" />
+  <div class="ring h-screen w-screen"></div>
+  <animate-comp :p="pageStore.pages.b" />
+  <div class="ring h-screen w-screen"></div>
 </template>
 <script>
-import pageChoserComp from "@/components/pageChoserComp.vue";
+import animateComp from "@/components/animateComp.vue";
+import pageStore from "@/storages/pageStorage";
+import sideMenuComp from "@/components/sideMenuComp.vue";
 export default {
   components: {
-    pageChoserComp,
+    animateComp,
+    sideMenuComp,
   },
   data() {
     return {
-      // History of pages
-      p: {
-        t: "t", // topPage
-        l: "l", // leftPage
-        c: "c", // centerPage
-        r: "r", // rightPage
-        b: "b", // bottomPage
-      },
+      pageStore: pageStore(),
     };
   },
 };

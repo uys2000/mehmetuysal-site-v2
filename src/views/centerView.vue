@@ -1,5 +1,7 @@
 <template>
-  <div class="absolute h-full w-full flex justify-center content-center items-center">
+  <div
+    class="absolute h-screen w-screen flex justify-center content-center items-center"
+  >
     <div :class="pulse + line + line1" />
     <div :class="pulse + line + line2" />
     <div :class="pulse + line + line3" />

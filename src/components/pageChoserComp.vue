@@ -7,7 +7,7 @@
     <center-view v-if="p == 'c'" />
     <right-view v-if="p == 'r'" />
     <bottom-view v-if="p == 'b'" />
-    <side-menu-comp  v-if="p == 'c'"/>
+    <slot />
   </div>
 </template>
 <script>
@@ -16,7 +16,6 @@ import leftView from "@/views/leftView.vue";
 import centerView from "@/views/centerView.vue";
 import rightView from "@/views/rightView.vue";
 import bottomView from "@/views/bottomView.vue";
-import sideMenuComp from "@/components/sideMenuComp.vue";
 export default {
   components: {
     topView,
@@ -24,7 +23,6 @@ export default {
     centerView,
     rightView,
     bottomView,
-    sideMenuComp,
   },
   props: ["p"],
 };

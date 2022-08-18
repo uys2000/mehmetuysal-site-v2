@@ -1,7 +1,7 @@
 <template>
   <div class="static overflow-hidden" :style="`${scene}`">
     <div
-      class="relative grid grid-cols-3 gap-8 transition-all duration-1000"
+      class="relative grid grid-cols-3 transition-all duration-1000"
       :style="`${container} ${isTurned ? tT : tF}`"
     >
       <router-view />

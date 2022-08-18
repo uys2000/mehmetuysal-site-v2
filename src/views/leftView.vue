@@ -1,3 +1,3 @@
 <template>
-  LeftView
+  <div class="h-screen w-screen">LeftView</div>
 </template>
