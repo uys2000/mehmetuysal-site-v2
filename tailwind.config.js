@@ -7,6 +7,7 @@ module.exports = {
       md: "768px",
       lg: "976px",
       xl: "1440px",
+      "2x": "2560px",
     },
     colors: {
       primary: "#000000",
@@ -18,14 +19,26 @@ module.exports = {
       sans: ["Graphik", "sans-serif"],
       serif: ["Merriweather", "serif"],
     },
+    animation: {
+      pulseR: "pulseR 3s linear infinite",
+      pulseF: "pulseF 3s linear infinite",
+    },
     extend: {
-      spacing: {
-        128: "32rem",
-        144: "36rem",
+      keyframes: {
+        pulseR: {
+          "0%": { opacity: ".5" },
+          "50%": { opacity: "1" },
+          "100%": { opacity: ".5" },
+        },
+        pulseF: {
+          "0%": { opacity: "1" },
+          "50%": { opacity: ".5" },
+          "100%": { opacity: "1" },
+        },
       },
-      borderRadius: {
-        "4xl": "2rem",
-      },
+    },
+    corePlugins: {
+      preflight: false,
     },
   },
   plugins: [],

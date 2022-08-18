@@ -1,5 +1,5 @@
 <template>
-  <header class="text-center">
+  <header class="motion-safe:animate-pulseR text-center">
     <span class="m-auto text-4xl hover:text-third transition duration-1000">
       Mehmet Uysal
     </span>
@@ -30,13 +30,13 @@
 export default {
   data() {
     return {
-      pulse: "motion-safe:animate-pulse",
+      pulse: "motion-safe:animate-pulseF",
       line: " absolute border-solid border-4 border-r-2 border-b-2 max-w-full",
       lineH: " invisible",
       lineMD: " md:visible",
       lineLG: " lg:visible",
       lineXL: " xl:visible",
-      line2X: " 2xl:visible",
+      line2X: " 2x:visible",
       line1:
         " border-t-third border-r-third border-b-trans border-l-trans w-64 h-24 mb-4 ml-4",
       line2:
