@@ -4,35 +4,75 @@ const getDirection = function (side) {
   else if (side == "b") return "tb";
   else return "bt";
 };
+const getPage = function (pages, page) {
+  if (pages.t == page) return "t";
+  else if (pages.l == page) return "l";
+  else if (pages.c == page) return "c";
+  else if (pages.r == page) return "r";
+  else return "b";
+};
+const setIndexes = function (direction) {
+  const i = {
+    lr: {
+      t: "z-10",
+      l: "z-30",
+      c: "z-40",
+      r: "z-20",
+      b: "z-10",
+    },
+    rl: {
+      t: "z-10",
+      l: "z-20",
+      c: "z-40",
+      r: "z-30",
+      b: "z-10",
+    },
+    bt: {
+      t: "z-30",
+      l: "z-10",
+      c: "z-40",
+      r: "z-10",
+      b: "z-20",
+    },
+    tb: {
+      t: "z-20",
+      l: "z-10",
+      c: "z-40",
+      r: "z-10",
+      b: "z-30",
+    },
+  };
+  return i[direction];
+};
 const setLR = function (pages) {
-  const p = { ...pages };
-  p.r = pages.l;
-  p.c = pages.r;
-  p.l = pages.c;
-  return p;
+  const page = { ...pages };
+  page[getPage(pages, "l")] = "r";
+  page[getPage(pages, "c")] = "l";
+  page[getPage(pages, "r")] = "c";
+  return page;
 };
 const setRL = function (pages) {
-  const p = { ...pages };
-  p.r = pages.c;
-  p.c = pages.l;
-  p.l = pages.r;
-  return p;
+  const page = { ...pages };
+  page[getPage(pages, "l")] = "c";
+  page[getPage(pages, "c")] = "r";
+  page[getPage(pages, "r")] = "l";
+  return page;
 };
 const setBT = function (pages) {
-  const p = { ...pages };
-  p.t = pages.b;
-  p.c = pages.t;
-  p.b = pages.c;
-  return p;
+  const page = { ...pages };
+  page[getPage(pages, "t")] = "b";
+  page[getPage(pages, "c")] = "t";
+  page[getPage(pages, "b")] = "c";
+  return page;
 };
 const setTB = function (pages) {
-  const p = { ...pages };
-  p.t = pages.c;
-  p.c = pages.b;
-  p.b = pages.t;
-  return p;
+  const page = { ...pages };
+  page[getPage(pages, "t")] = "c";
+  page[getPage(pages, "c")] = "b";
+  page[getPage(pages, "b")] = "t";
+  return page;
 };
-const setPages = function (direction, pages) {
+const setpages = function (direction, pages) {
   if (direction == "lr") return setLR(pages);
   else if (direction == "rl") return setRL(pages);
   else if (direction == "bt") return setBT(pages);
@@ -41,5 +81,6 @@ const setPages = function (direction, pages) {
 
 export const changePage = function (side, storage) {
   storage.direction = getDirection(side);
-  storage.pages = setPages(storage.direction, storage.pages);
+  storage.indexes = setIndexes(storage.direction);
+  storage.pages = setpages(storage.direction, storage.pages);
 };
