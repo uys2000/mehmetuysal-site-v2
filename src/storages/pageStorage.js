@@ -3,6 +3,7 @@ import { defineStore } from "pinia";
 export default defineStore("page", {
   state: () => ({
     direction: "rl", // rl : rightToLeft, lr, bt, tb
+    side: "",
     center: `left:${window.innerWidth}px; top:${window.innerHeight}px;`,
     pages: {
       t: "t",

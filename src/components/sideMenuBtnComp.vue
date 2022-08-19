@@ -1,6 +1,6 @@
 <template>
   <button
-    class="absolute invisible md:visible px-6 py-2 active:text-third z-50"
+    class="absolute px-6 py-2 active:text-third z-50"
     :style="style[side]"
     @click="changePage"
   >
@@ -26,12 +26,15 @@ export default {
   },
   methods: {
     setPage: function () {
+      this.pageStorage.side = this.side;
       setTimeout(() => this.counter--, 2000);
       changePage(this.side, this.pageStorage);
     },
     changePage: function () {
-      this.counter += 1;
-      if (this.counter == 1) this.setPage();
+      if (this.pageStorage.side == this.side || this.pageStorage.side == "") {
+        this.counter += 1;
+        if (this.counter == 1) this.setPage();
+      }
     },
   },
   watch: {
@@ -39,6 +42,7 @@ export default {
       if (nVal < oVal && nVal != 0) {
         this.setPage();
       }
+      if (nVal == 0) this.pageStorage.side = "";
     },
   },
 };
