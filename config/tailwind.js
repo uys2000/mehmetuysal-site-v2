@@ -28,11 +28,18 @@ module.exports = {
       serif: ["Merriweather", "serif"],
     },
     animation: {
+      pulseC: "pulseC 1s linear infinite",
       pulseR: "pulseR 3s linear infinite",
       pulseF: "pulseF 3s linear infinite",
     },
     extend: {
       keyframes: {
+        pulseC: {
+          "0%": { "background-color": "black" },
+          "50%": { "background-color": "black" },
+          "51%": { "background-color": "white" },
+          "100%": { "background-color": "white" },
+        },
         pulseR: {
           "0%": { opacity: ".5" },
           "50%": { opacity: "1" },

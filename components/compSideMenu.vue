@@ -13,7 +13,7 @@
       First Right Page
     </comp-side-menu-button>
     <comp-side-menu-button side="b">
-      First Bottom Page
+      Terminal
     </comp-side-menu-button>
   </div>
 </template>

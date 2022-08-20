@@ -8,6 +8,7 @@
 <script>
 import { setPage, changePageListener } from "@/services/changePage";
 import page from "../storages/page";
+import menu from "../storages/menu";
 
 export default {
   props: ["side"],
@@ -15,6 +16,7 @@ export default {
     return {
       counter: 0,
       pageStorage: page(),
+      menuStorage: menu(),
     };
   },
   methods: {
@@ -22,6 +24,7 @@ export default {
       const iCounter = () => this.counter++;
       const dCounter = () => this.counter--;
       setPage(side, this.pageStorage, iCounter, dCounter, true);
+      this.menuStorage.isMenuOpen = false;
     },
   },
   watch: {
