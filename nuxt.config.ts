@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     viewer: true,
   },
   nitro: {
-    preset: "node-server",
+    preset: "aws-lambda",
+    serveStatic: true,
   },
 });
