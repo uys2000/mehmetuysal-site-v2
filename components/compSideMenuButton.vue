@@ -7,13 +7,14 @@
 </template>
 <script>
 import { setPage, changePageListener } from "@/services/changePage";
-import pageStorage from "@/storages/pageStorage";
+import page from "../storages/page";
+
 export default {
   props: ["side"],
   data() {
     return {
       counter: 0,
-      pageStorage: pageStorage(),
+      pageStorage: page(),
     };
   },
   methods: {

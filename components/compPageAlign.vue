@@ -1,8 +1,8 @@
 <template>
-  <div class="absolute w-screen h-screen t" :style="position" :name="name">
+  <div class="absolute w-screen h-screen t" :class="index" :style="position" :name="name">
     <div
       class="relative bg-primary w-screen h-screen flex flex-row justify-center items-center"
-      :class="index"
+      
     >
       <slot />
     </div>

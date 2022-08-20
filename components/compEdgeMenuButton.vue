@@ -8,7 +8,7 @@
   </button>
 </template>
 <script>
-import pageStorage from "@/storages/pageStorage";
+import page from "../storages/page";
 import { setPage, changePageListener } from "@/services/changePage";
 export default {
   props: ["side"],
@@ -21,7 +21,7 @@ export default {
         b: "left:50%; bottom:20px; transform: translate(-50%, 0)",
       },
       counter: 0,
-      pageStorage: pageStorage(),
+      pageStorage: page(),
     };
   },
   methods: {

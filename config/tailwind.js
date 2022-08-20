@@ -1,6 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./*/index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
+  content: [
+    `components/**/*.{vue,js}`,
+    `layouts/**/*.vue`,
+    `pages/**/*.vue`,
+    `composables/**/*.{js,ts}`,
+    `plugins/**/*.{js,ts}`,
+    `App.{js,ts,vue}`,
+    `app.{js,ts,vue}`,
+  ],
   theme: {
     screens: {
       sm: "425px",
@@ -35,6 +43,13 @@ module.exports = {
           "50%": { opacity: ".5" },
           "100%": { opacity: "1" },
         },
+      },
+      zIndex: {
+        10: "10",
+        20: "20",
+        30: "30",
+        40: "40",
+        50: "50",
       },
     },
     corePlugins: {
