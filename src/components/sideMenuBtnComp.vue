@@ -34,7 +34,7 @@ export default {
   watch: {
     counter(nVal, oVal) {
       const dCounter = () =>
-        this.counter > 4 ? (this.counter = 4) : this.counter--;
+        this.counter > 3 ? (this.counter = 3) : this.counter--;
       changePageListener(
         nVal,
         oVal,
