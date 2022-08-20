@@ -1,15 +1,15 @@
 <template>
   <button
-    class="absolute px-6 py-2 active:text-third z-50"
+    class="absolute invisible md:visible px-6 py-2 active:text-third z-50"
     :style="style[side]"
-    @click="changePage"
+    @click="clickEvent"
   >
     <slot />
   </button>
 </template>
 <script>
 import pageStorage from "@/storages/pageStorage";
-import { changePage } from "@/services/pageChangeAnimation";
+import { setPage, changePageListener } from "@/services/changePage";
 export default {
   props: ["side"],
   data() {
@@ -25,24 +25,23 @@ export default {
     };
   },
   methods: {
-    setPage: function () {
-      this.pageStorage.side = this.side;
-      setTimeout(() => this.counter--, 2000);
-      changePage(this.side, this.pageStorage);
-    },
-    changePage: function () {
-      if (this.pageStorage.side == this.side || this.pageStorage.side == "") {
-        this.counter += 1;
-        if (this.counter == 1) this.setPage();
-      }
+    clickEvent: function () {
+      const iCounter = () => this.counter++;
+      const dCounter = () => this.counter--;
+      setPage(this.side, this.pageStorage, iCounter, dCounter);
     },
   },
   watch: {
     counter(nVal, oVal) {
-      if (nVal < oVal && nVal != 0) {
-        this.setPage();
-      }
-      if (nVal == 0) this.pageStorage.side = "";
+      const dCounter = () =>
+        this.counter > 4 ? (this.counter = 4) : this.counter--;
+      changePageListener(
+        nVal,
+        oVal,
+        this.side,
+        this.pageStorage,
+        dCounter,
+      );
     },
   },
 };

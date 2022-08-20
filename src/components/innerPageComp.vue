@@ -1,5 +1,5 @@
 <template>
-  <div class="absolute ring w-screen h-screen t" :style="position" :name="name">
+  <div class="absolute w-screen h-screen t" :style="position" :name="name">
     <div
       class="relative bg-primary w-screen h-screen flex flex-row justify-center items-center"
       :class="index"
@@ -15,6 +15,6 @@ export default {
 </script>
 <style scoped>
 .t {
-  transition: 2s linear;
+  transition: 1s linear;
 }
 </style>

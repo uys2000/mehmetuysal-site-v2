@@ -28,18 +28,18 @@ const setIndexes = function (direction) {
       b: "z-10",
     },
     bt: {
-      t: "z-30",
-      l: "z-10",
-      c: "z-40",
-      r: "z-10",
-      b: "z-20",
-    },
-    tb: {
       t: "z-20",
       l: "z-10",
       c: "z-40",
       r: "z-10",
       b: "z-30",
+    },
+    tb: {
+      t: "z-30",
+      l: "z-10",
+      c: "z-40",
+      r: "z-10",
+      b: "z-20",
     },
   };
   return i[direction];
@@ -60,16 +60,16 @@ const setRL = function (pages) {
 };
 const setBT = function (pages) {
   const page = { ...pages };
-  page[getPage(pages, "t")] = "b";
-  page[getPage(pages, "c")] = "t";
-  page[getPage(pages, "b")] = "c";
+  page[getPage(pages, "t")] = "c";
+  page[getPage(pages, "c")] = "b";
+  page[getPage(pages, "b")] = "t";
   return page;
 };
 const setTB = function (pages) {
   const page = { ...pages };
-  page[getPage(pages, "t")] = "c";
-  page[getPage(pages, "c")] = "b";
-  page[getPage(pages, "b")] = "t";
+  page[getPage(pages, "t")] = "b";
+  page[getPage(pages, "c")] = "t";
+  page[getPage(pages, "b")] = "c";
   return page;
 };
 const setpages = function (direction, pages) {
@@ -78,9 +78,26 @@ const setpages = function (direction, pages) {
   else if (direction == "bt") return setBT(pages);
   else return setTB(pages);
 };
-
 export const changePage = function (side, storage) {
   storage.direction = getDirection(side);
   storage.indexes = setIndexes(storage.direction);
   storage.pages = setpages(storage.direction, storage.pages);
+};
+const getCenterPagePosition = function (pages) {
+  if (pages.t == "c") return "t";
+  else if (pages.l == "c") return "l";
+  else if (pages.c == "c") return "c";
+  else if (pages.r == "c") return "r";
+  else return "b";
+};
+
+const setPositions = function (p, pages) {
+  const c = getCenterPagePosition(pages);
+  const page = { ...pages };
+  page[c] = pages[p];
+  page[p] = pages[c];
+  return page;
+};
+export const changePageDirectly = function (page, storage) {
+  storage.pages = setPositions(page, storage.pages);
 };
