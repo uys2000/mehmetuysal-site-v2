@@ -1,3 +1,3 @@
 <template>
-  <div class="h-screen w-screen">BottomView</div>
+  <div>BottomView</div>
 </template>
