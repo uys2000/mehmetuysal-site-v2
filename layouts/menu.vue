@@ -13,8 +13,8 @@
   <comp-menu-button @click="menuStorage.setMenu" />
 </template>
 <script>
-import page from "../storages/page";
-import menu from "../storages/menu";
+import page from "../store/page";
+import menu from "../store/menu";
 export default {
   layout: "menu",
   data() {

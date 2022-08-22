@@ -7,8 +7,8 @@
 </template>
 <script>
 import { setPage, changePageListener } from "@/services/changePage";
-import page from "../storages/page";
-import menu from "../storages/menu";
+import page from "../store/page";
+import menu from "../store/menu";
 
 export default {
   props: ["side"],

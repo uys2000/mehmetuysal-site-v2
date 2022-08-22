@@ -1,4 +1,6 @@
 <template>
+  <span class="md:hidden" />
+  <span class="hidden md:inline" />
   <div
     id="terminal"
     class="relative w-8/12 h-5/6 border border-solid border-third"
@@ -12,33 +14,49 @@
       @blur="focus = false"
       @keydown="keydown"
     >
-      <div class="p">
-        <span class="md:hidden">{{ userShort }}</span>
-        <span class="hidden md:inline">{{ userLong }}</span>
-        <span>{{ " " + inputText }}</span>
-        <span
-          class="inline-block relative border bg-secondary w-2 h-4 top-1 p"
-          :class="{ 'motion-safe:animate-pulseC': focus }"
-        />
+      <div>
+        <div class="p">
+          <span v-html="terminal.getUserText" />
+          <span>{{ " " + inputText }}</span>
+          <span
+            class="inline-block relative border bg-secondary w-2 h-4 top-1 p"
+            :class="{ 'motion-safe:animate-pulseC': focus }"
+          />
+        </div>
       </div>
-      <div
-        v-for="text in [...terminalTexts].reverse()"
-        :key="text"
-        class="whitespace-nowrap b w-full max-w-full p"
-      >
-        <span class="md:hidden">{{ userShort }}</span>
-        <span class="hidden md:inline">{{ userLong }}</span>
-        <pre class="inline p">
-        {{ text }}
-        </pre>
+      <div id="history">
+        <div
+          v-for="i in terminal.inputs.length"
+          :key="i"
+          class="whitespace-nowrap b w-full max-w-full p"
+        >
+          <div>
+            <span v-html="terminal.getUserText" />
+            <pre class="inline p">{{ terminal.inputs[i - 1] }}</pre>
+          </div>
+          <div>
+            <pre class="inline">{{ terminal.outputs[i - 1] }}</pre>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import terminal from "~~/store/terminal";
 export default {
+  setup({ $pinia }) {
+    const store = terminal($pinia);
+    store.getCommands();
+  },
+  mounted() {
+    setTimeout(() => {
+      console.log(this.terminal.commands);
+    }, 1000);
+  },
   data() {
     return {
+      terminal: terminal(),
       focus: false,
       userShort: "[ -- - ] $",
       userLong: "[guest@mehmetuysal.tech root] $",
@@ -59,11 +77,25 @@ export default {
         this.inputText += text;
       });
     },
-    executeCommand: function (command) {},
+    executeCommand: function (commands) {
+      if (this.terminal.checkCommands(commands[0])) {
+        if (
+          !commands[1] ||
+          !(commands[1] in this.terminal.commands[commands[0]])
+        )
+          commands[1] = "help";
+        const c = this.terminal.commands[commands[0]][commands[1]];
+        const output = eval(c.type ? c.value : "c.value");
+        this.terminal.addOutput(output);
+      } else {
+        this.terminal.addOutput("command Not found");
+      }
+    },
     runText: function () {
       const text = this.inputText;
       this.inputText = "";
-      this.terminalTexts.push(text);
+      this.terminal.addInput(text);
+      this.executeCommand(text.split("_"));
     },
     actionRouter: function (input) {
       if (input.shiftKey && input.ctrlKey && input.code == "KeyV")
