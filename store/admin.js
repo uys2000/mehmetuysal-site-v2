@@ -2,11 +2,13 @@ import { defineStore } from "pinia";
 
 export default defineStore("admin", {
   state: () => ({
-    isLogged: false,
+    isLogged: true,
+    page: "Info",
+    user: {},
   }),
   actions: {
-    setSide(value) {
-      this.side = value;
+    setPage(value) {
+      this.page = value;
     },
   },
 });

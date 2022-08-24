@@ -31,6 +31,8 @@ module.exports = {
       pulseC: "pulseC 1s linear infinite",
       pulseR: "pulseR 3s linear infinite",
       pulseF: "pulseF 3s linear infinite",
+      openM: "openM 3s linear",
+      openC: "openC 3s linear",
     },
     extend: {
       keyframes: {
@@ -49,6 +51,14 @@ module.exports = {
           "0%": { opacity: "1" },
           "50%": { opacity: ".5" },
           "100%": { opacity: "1" },
+        },
+        openM: {
+          "0%": { height: "0px" },
+          "100%": { height: "400px" },
+        },
+        openC: {
+          "0%": { height: "400px" },
+          "100%": { height: "0px" },
         },
       },
       zIndex: {
