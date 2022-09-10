@@ -1,4 +1,4 @@
-import { changePageDirectly, changePage } from "@/services/pageChangeAnimation";
+import { changePageDirectly, changePage } from "~~/services/changePageAnimation";
 
 export const setPageFunction = function (side, pageStorage, dCounter, direct) {
   pageStorage.setSide(side);

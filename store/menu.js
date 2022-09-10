@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 
 export default defineStore("menu", {
   state: () => ({
-    scene: `perspective: 500vw;`,
+    scene: `perspective: 100vw;`,
     container: `
     width: 300vw;
     height:300vh;
@@ -11,7 +11,7 @@ export default defineStore("menu", {
    `,
     trueMenuStyle: `
     transform: translateX(-25%)
-    translateZ(-1000vw)
+    translateZ(-200vw)
     translateY(-66%)
     rotateY(60deg);`,
     falseMenuStyle: "transform: translateX(0) translateZ(0) rotateY(0);",

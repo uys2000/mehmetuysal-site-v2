@@ -7,7 +7,7 @@
       First Left Page
     </comp-side-menu-button>
     <comp-side-menu-button side="c">
-      First Center Page
+      Home Page
     </comp-side-menu-button>
     <comp-side-menu-button side="r">
       First Right Page

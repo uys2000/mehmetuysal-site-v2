@@ -78,18 +78,12 @@ export default {
       });
     },
     executeCommand: function (commands) {
-      if (this.terminal.checkCommands(commands[0])) {
-        if (
-          !commands[1] ||
-          !(commands[1] in this.terminal.commands[commands[0]])
-        )
-          commands[1] = "help";
-        const c = this.terminal.commands[commands[0]][commands[1]];
-        const output = eval(c.type ? c.value : "c.value");
-        this.terminal.addOutput(output);
-      } else {
-        this.terminal.addOutput("command Not found");
-      }
+      if (!this.terminal.checkCommands(commands[0])) commands = ["help"];
+      if (!commands[1] || !(commands[1] in this.terminal.commands[commands[0]]))
+        commands[1] = "help";
+      const c = this.terminal.commands[commands[0]][commands[1]];
+      const output = eval(c.type ? c.value : "c.value");
+      this.terminal.addOutput(output);
     },
     runText: function () {
       const text = this.inputText;
